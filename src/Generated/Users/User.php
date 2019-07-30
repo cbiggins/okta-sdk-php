@@ -61,12 +61,12 @@ class User extends \Okta\Resource\AbstractResource
                     );
     }
 
-    public function save($options)
+    public function save($options = [])
     {
         return \Okta\Client::getInstance()
                 ->getDataStore()
                 ->saveResource(
-                    "/users?activate=false",
+                    "/users",
                     $this,
                     \Okta\Users\User::class,
                     $options
